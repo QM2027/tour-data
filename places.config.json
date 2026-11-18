@@ -81,6 +81,211 @@
       "2027552"
     ]
   },
+  "eongdeongmul": {
+    "name": "Eongdeongmul Valley",
+    "nameKo": "엉덩물계곡",
+    "lat": 33.2482,
+    "lng": 126.4134,
+    "photoKeyword": [
+      "엉덩물계곡",
+      "엉덩물"
+    ]
+  },
+  "beritnae": {
+    "name": "Beritnae Oreum",
+    "nameKo": "베릿내오름",
+    "lat": 33.2487,
+    "lng": 126.4199,
+    "searchKeyword": "Beritnae",
+    "photoKeyword": [
+      "베릿내오름",
+      "베릿네오름"
+    ]
+  },
+  "alive-museum": {
+    "name": "Alive Museum Jungmun",
+    "nameKo": "박물관은 살아있다 제주중문점",
+    "lat": 33.2549,
+    "lng": 126.4087,
+    "searchKeyword": "Alive Museum",
+    "photoKeyword": [
+      "박물관은살아있다",
+      "박물관은 살아있다"
+    ]
+  },
+  "jungmun-market": {
+    "name": "Jungmun Five-day Market",
+    "nameKo": "중문향토오일시장",
+    "lat": 33.2511,
+    "lng": 126.4249,
+    "searchKeyword": "Jungmun Five-day",
+    "photoKeyword": [
+      "중문오일시장",
+      "중문향토오일시장"
+    ]
+  },
+  "yakcheonsa": {
+    "name": "Yakcheonsa Temple",
+    "nameKo": "약천사",
+    "lat": 33.2462,
+    "lng": 126.4494,
+    "photoKeyword": "약천사"
+  },
+  "daepo-port": {
+    "name": "Daepo Port",
+    "nameKo": "대포포구",
+    "lat": 33.2388,
+    "lng": 126.4358,
+    "searchKeyword": "Daepo",
+    "photoKeyword": [
+      "대포포구",
+      "대포항"
+    ]
+  },
+  "jungmun-town": {
+    "name": "Jungmun town centre",
+    "nameKo": "중문 시내 (중문환승정류장 일대)",
+    "lat": 33.2518,
+    "lng": 126.4238,
+    "skipInfo": true,
+    "skipPhotos": true
+  },
+  "yerae-park": {
+    "name": "Yerae Ecological Park",
+    "nameKo": "예래생태공원",
+    "lat": 33.2444,
+    "lng": 126.391,
+    "searchKeyword": "Yerae",
+    "photoKeyword": [
+      "예래생태공원",
+      "예래생태체험관"
+    ]
+  },
+  "nonjitmul": {
+    "name": "Nonjitmul",
+    "nameKo": "논짓물",
+    "lat": 33.2368,
+    "lng": 126.3887,
+    "photoKeyword": "논짓물"
+  },
+  "eongtto": {
+    "name": "Eongtto Falls",
+    "nameKo": "엉또폭포",
+    "lat": 33.2685,
+    "lng": 126.5,
+    "searchKeyword": "Eongtto",
+    "photoKeyword": "엉또폭포"
+  },
+  "gangjeong-cheon": {
+    "name": "Gangjeong Stream",
+    "nameKo": "강정천",
+    "lat": 33.2357,
+    "lng": 126.4762,
+    "searchKeyword": "Gangjeong",
+    "photoKeyword": "강정천"
+  },
+  "beophwan": {
+    "name": "Beophwan Port",
+    "nameKo": "법환포구",
+    "lat": 33.2372,
+    "lng": 126.5161,
+    "searchKeyword": "Beophwan",
+    "photoKeyword": [
+      "법환포구",
+      "법환"
+    ]
+  },
+  "gunsan-oreum": {
+    "name": "Gunsan Oreum",
+    "nameKo": "군산오름",
+    "lat": 33.2552,
+    "lng": 126.3683,
+    "searchKeyword": "Gunsan",
+    "photoKeyword": "군산오름"
+  },
+  "baksugijeong": {
+    "name": "Baksugijeong Cliff & Daepyeong Port",
+    "nameKo": "박수기정·대평포구",
+    "lat": 33.2372,
+    "lng": 126.3587,
+    "photoKeyword": [
+      "박수기정",
+      "대평포구"
+    ]
+  },
+  "andeok-valley": {
+    "name": "Andeok Valley",
+    "nameKo": "안덕계곡",
+    "lat": 33.2573,
+    "lng": 126.3525,
+    "searchKeyword": "Andeok",
+    "photoKeyword": "안덕계곡"
+  },
+  "hwasun-gotjawal": {
+    "name": "Hwasun Gotjawal",
+    "nameKo": "화순곶자왈 생태탐방숲길",
+    "lat": 33.2635,
+    "lng": 126.3324,
+    "searchKeyword": "Hwasun Gotjawal",
+    "photoKeyword": [
+      "화순곶자왈",
+      "곶자왈"
+    ]
+  },
+  "bangju-church": {
+    "name": "Bangju Church",
+    "nameKo": "방주교회",
+    "lat": 33.3051,
+    "lng": 126.3878,
+    "searchKeyword": "Bangju",
+    "photoKeyword": "방주교회"
+  },
+  "aerospace-museum": {
+    "name": "Jeju Aerospace Museum",
+    "nameKo": "제주항공우주박물관",
+    "lat": 33.303,
+    "lng": 126.2989,
+    "searchKeyword": "Aerospace",
+    "photoKeyword": "제주항공우주박물관"
+  },
+  "shinhwa-park": {
+    "name": "Shinhwa Theme Park",
+    "nameKo": "신화테마파크",
+    "lat": 33.3059,
+    "lng": 126.3122,
+    "searchKeyword": "Shinhwa",
+    "photoKeyword": [
+      "신화테마파크",
+      "신화월드"
+    ]
+  },
+  "wetland-1100": {
+    "name": "1100 Highland Wetland",
+    "nameKo": "1100고지습지",
+    "lat": 33.3399,
+    "lng": 126.4368,
+    "searchKeyword": "1100",
+    "photoKeyword": [
+      "1100고지습지",
+      "1100고지"
+    ]
+  },
+  "seogwipo-forest": {
+    "name": "Seogwipo Natural Recreation Forest",
+    "nameKo": "서귀포자연휴양림",
+    "lat": 33.3108,
+    "lng": 126.4631,
+    "searchKeyword": "Seogwipo Natural Recreation",
+    "photoKeyword": "서귀포자연휴양림"
+  },
+  "camellia-hill": {
+    "name": "Camellia Hill",
+    "nameKo": "카멜리아힐",
+    "lat": 33.2896,
+    "lng": 126.3699,
+    "searchKeyword": "Camellia Hill",
+    "photoKeyword": "카멜리아힐"
+  },
   "cheonjiyeon": {
     "name": "Cheonjiyeon Falls",
     "nameKo": "천지연폭포",
