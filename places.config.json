@@ -196,8 +196,8 @@
   "gangjeong-cheon": {
     "name": "Gangjeong Stream",
     "nameKo": "강정천",
-    "lat": 33.2357,
-    "lng": 126.4762,
+    "lat": 33.2358,
+    "lng": 126.4854,
     "contentId": "1872252",
     "searchKeyword": "Gangjeong",
     "photoKeyword": "강정천"
@@ -289,8 +289,8 @@
   "wetland-1100": {
     "name": "1100 Highland Wetland",
     "nameKo": "1100고지습지",
-    "lat": 33.3399,
-    "lng": 126.4368,
+    "lat": 33.3577,
+    "lng": 126.4636,
     "searchKeyword": "1100",
     "photoKeyword": [
       "1100고지습지",
@@ -587,8 +587,8 @@
   "noksanro": {
     "name": "Noksan-ro Canola Road",
     "nameKo": "녹산로 유채꽃길",
-    "lat": 33.387,
-    "lng": 126.752,
+    "lat": 33.3845,
+    "lng": 126.7371,
     "contentId": "3079500",
     "photoKeyword": "녹산로",
     "photoIds": [
