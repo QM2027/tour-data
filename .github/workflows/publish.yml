@@ -1,0 +1,71 @@
+name: Publish tour data
+
+# Fetches place details, festivals and photos from the Korea Tourism Organization (data.go.kr) and
+# deploys them to https://qm2027.github.io/tour-data/ (start at index.json). Nothing is committed.
+#
+#   push / manual run → publish, and write match.json (contentId suggestions for unmatched places)
+#   schedule          → weekly refresh; failures keep the previous published data
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      match_all:
+        description: Re-check every place in match.json, not only the unmatched ones
+        type: boolean
+        default: false
+  schedule:
+    - cron: "0 3 * * 1" # Mondays 03:00 UTC (12:00 in Korea)
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - id: pages
+        uses: actions/configure-pages@v5
+
+      # cwebp resizes the mirrored photos.
+      - run: command -v cwebp || (sudo apt-get update -qq && sudo apt-get install -y -qq webp)
+
+      - run: node --test
+
+      - run: node scripts/sync.mjs
+        env:
+          # Organization secret shared with weather-data: the data.go.kr general key (either form).
+          DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
+          PREVIOUS_URL: ${{ steps.pages.outputs.base_url }}
+
+      - if: github.event_name != 'schedule'
+        run: node scripts/match.mjs --out site/match.json ${{ inputs.match_all && '--all' || '' }}
+        env:
+          DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
+
+      - run: du -sh site && ls site
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

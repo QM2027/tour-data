@@ -1,0 +1,277 @@
+{
+  "jusangjeolli": {
+    "name": "Jusangjeolli Cliff",
+    "nameKo": "대포동 주상절리대",
+    "lat": 33.2378,
+    "lng": 126.4253,
+    "photoKeyword": "주상절리"
+  },
+  "saekdal": {
+    "name": "Jungmun Saekdal Beach",
+    "nameKo": "중문색달해수욕장",
+    "lat": 33.2445,
+    "lng": 126.4119,
+    "photoKeyword": "중문색달해수욕장"
+  },
+  "cheonjeyeon": {
+    "name": "Cheonjeyeon Falls",
+    "nameKo": "천제연폭포",
+    "lat": 33.2523,
+    "lng": 126.4183,
+    "photoKeyword": "천제연폭포"
+  },
+  "yeomiji": {
+    "name": "Yeomiji Botanical Garden",
+    "nameKo": "여미지식물원",
+    "lat": 33.2496,
+    "lng": 126.4178,
+    "photoKeyword": "여미지식물원"
+  },
+  "teddy": {
+    "name": "Teddy Bear Museum",
+    "nameKo": "테디베어뮤지엄",
+    "lat": 33.2502,
+    "lng": 126.4122,
+    "photoKeyword": "테디베어뮤지엄"
+  },
+  "olle8": {
+    "name": "Olle Trail Route 8",
+    "nameKo": "올레 8코스",
+    "lat": 33.2398,
+    "lng": 126.4176,
+    "photoKeyword": "올레 8코스"
+  },
+  "cheonjiyeon": {
+    "name": "Cheonjiyeon Falls",
+    "nameKo": "천지연폭포",
+    "lat": 33.2469,
+    "lng": 126.5543,
+    "photoKeyword": "천지연폭포"
+  },
+  "jeongbang": {
+    "name": "Jeongbang Falls",
+    "nameKo": "정방폭포",
+    "lat": 33.2448,
+    "lng": 126.5719,
+    "photoKeyword": "정방폭포"
+  },
+  "oedolgae": {
+    "name": "Oedolgae Rock",
+    "nameKo": "외돌개",
+    "lat": 33.2394,
+    "lng": 126.5446,
+    "photoKeyword": "외돌개"
+  },
+  "leejungseop": {
+    "name": "Lee Jung-seop Street & Art Museum",
+    "nameKo": "이중섭거리·미술관",
+    "lat": 33.2471,
+    "lng": 126.565,
+    "photoKeyword": "이중섭거리"
+  },
+  "olle-market": {
+    "name": "Seogwipo Maeil Olle Market",
+    "nameKo": "서귀포매일올레시장",
+    "lat": 33.2494,
+    "lng": 126.5636,
+    "photoKeyword": "매일올레시장"
+  },
+  "astro-seogwipo": {
+    "name": "Seogwipo Astronomical Science Center",
+    "nameKo": "서귀포천문과학문화관",
+    "lat": 33.256,
+    "lng": 126.545,
+    "photoKeyword": "서귀포천문과학문화관"
+  },
+  "sanbangsan": {
+    "name": "Sanbangsan & Yongmeori Coast",
+    "nameKo": "산방산·용머리해안",
+    "lat": 33.2316,
+    "lng": 126.3146,
+    "photoKeyword": "산방산"
+  },
+  "suwolbong": {
+    "name": "Suwolbong Geotrail",
+    "nameKo": "수월봉 지질트레일",
+    "lat": 33.2958,
+    "lng": 126.1636,
+    "photoKeyword": "수월봉"
+  },
+  "songaksan": {
+    "name": "Songaksan",
+    "nameKo": "송악산",
+    "lat": 33.201,
+    "lng": 126.2925,
+    "photoKeyword": "송악산"
+  },
+  "osulloc": {
+    "name": "O'sulloc Tea Museum",
+    "nameKo": "오설록 티뮤지엄",
+    "lat": 33.3058,
+    "lng": 126.2895,
+    "photoKeyword": "오설록"
+  },
+  "bonte": {
+    "name": "Bonte Museum",
+    "nameKo": "본태박물관",
+    "lat": 33.3018,
+    "lng": 126.3936,
+    "photoKeyword": "본태박물관"
+  },
+  "hyeopjae": {
+    "name": "Hyeopjae Beach",
+    "nameKo": "협재해수욕장",
+    "lat": 33.394,
+    "lng": 126.2397,
+    "photoKeyword": "협재해수욕장"
+  },
+  "saebyeol": {
+    "name": "Saebyeol Oreum",
+    "nameKo": "새별오름",
+    "lat": 33.3664,
+    "lng": 126.3573,
+    "photoKeyword": "새별오름"
+  },
+  "yeongsil": {
+    "name": "Hallasan, Yeongsil Trail",
+    "nameKo": "한라산 영실코스",
+    "lat": 33.3473,
+    "lng": 126.4964,
+    "photoKeyword": "영실"
+  },
+  "seongpanak": {
+    "name": "Hallasan, Seongpanak Trail",
+    "nameKo": "한라산 성판악코스",
+    "lat": 33.3846,
+    "lng": 126.62,
+    "photoKeyword": "성판악"
+  },
+  "seongsan": {
+    "name": "Seongsan Ilchulbong",
+    "nameKo": "성산일출봉",
+    "lat": 33.4587,
+    "lng": 126.9425,
+    "photoKeyword": "성산일출봉"
+  },
+  "udo": {
+    "name": "Udo Island (ferry)",
+    "nameKo": "우도 (성산항)",
+    "lat": 33.474,
+    "lng": 126.934,
+    "photoKeyword": "우도"
+  },
+  "manjanggul": {
+    "name": "Manjanggul Lava Tube",
+    "nameKo": "만장굴",
+    "lat": 33.5283,
+    "lng": 126.7714,
+    "photoKeyword": "만장굴"
+  },
+  "bijarim": {
+    "name": "Bijarim Forest",
+    "nameKo": "비자림",
+    "lat": 33.4857,
+    "lng": 126.8064,
+    "photoKeyword": "비자림"
+  },
+  "haenyeo-museum": {
+    "name": "Haenyeo Museum",
+    "nameKo": "해녀박물관",
+    "lat": 33.5232,
+    "lng": 126.8616,
+    "photoKeyword": "해녀박물관"
+  },
+  "aquaplanet": {
+    "name": "Aqua Planet Jeju",
+    "nameKo": "아쿠아플라넷 제주",
+    "lat": 33.433,
+    "lng": 126.9275,
+    "photoKeyword": "아쿠아플라넷 제주"
+  },
+  "noksanro": {
+    "name": "Noksan-ro Canola Road",
+    "nameKo": "녹산로 유채꽃길",
+    "lat": 33.387,
+    "lng": 126.752,
+    "photoKeyword": "녹산로"
+  },
+  "saryeoni": {
+    "name": "Saryeoni Forest Path",
+    "nameKo": "사려니숲길",
+    "lat": 33.4135,
+    "lng": 126.6385,
+    "photoKeyword": "사려니숲길"
+  },
+  "saeyeongyo": {
+    "name": "Saeyeongyo Bridge & Saeseom",
+    "nameKo": "새연교·새섬",
+    "lat": 33.2389,
+    "lng": 126.5596,
+    "photoKeyword": "새연교"
+  },
+  "gwangchigi": {
+    "name": "Gwangchigi Beach",
+    "nameKo": "광치기해변",
+    "lat": 33.4525,
+    "lng": 126.9245,
+    "photoKeyword": "광치기해변"
+  },
+  "hamdeok": {
+    "name": "Hamdeok Beach",
+    "nameKo": "함덕해수욕장",
+    "lat": 33.5434,
+    "lng": 126.6697,
+    "photoKeyword": "함덕해수욕장"
+  },
+  "dongmun": {
+    "name": "Dongmun Market & Night Market",
+    "nameKo": "동문시장 야시장",
+    "lat": 33.5116,
+    "lng": 126.5262,
+    "photoKeyword": "동문시장"
+  },
+  "jeonnongro": {
+    "name": "Jeonnong-ro Cherry Blossoms",
+    "nameKo": "전농로 왕벚꽃거리",
+    "lat": 33.5034,
+    "lng": 126.521,
+    "photoKeyword": "전농로"
+  },
+  "peace-park": {
+    "name": "Jeju 4·3 Peace Park",
+    "nameKo": "제주4·3평화공원",
+    "lat": 33.4507,
+    "lng": 126.6704,
+    "photoKeyword": "4.3평화공원"
+  },
+  "cju": {
+    "name": "Jeju International Airport (CJU)",
+    "nameKo": "제주국제공항",
+    "lat": 33.507,
+    "lng": 126.493,
+    "skipPhotos": true
+  },
+  "seongsan-port": {
+    "name": "Seongsan Port (Udo ferry)",
+    "nameKo": "성산항",
+    "lat": 33.4742,
+    "lng": 126.9319,
+    "skipPhotos": true
+  },
+  "seogwipo-medical": {
+    "name": "Seogwipo Medical Center",
+    "nameKo": "서귀포의료원",
+    "lat": 33.2564,
+    "lng": 126.5643,
+    "skipPhotos": true,
+    "skipInfo": true
+  },
+  "jnuh": {
+    "name": "Jeju National University Hospital",
+    "nameKo": "제주대학교병원",
+    "lat": 33.4673,
+    "lng": 126.545,
+    "skipPhotos": true,
+    "skipInfo": true
+  }
+}
