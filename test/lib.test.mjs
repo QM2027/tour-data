@@ -121,3 +121,10 @@ test("fitWidth shrinks but never enlarges", () => {
   assert.deepEqual(fitWidth({ width: 2400, height: 1600 }, 1200), { width: 1200, height: 800 });
   assert.deepEqual(fitWidth({ width: 800, height: 600 }, 1200), { width: 800, height: 600 });
 });
+
+test("photoCandidates keeps Jeju photos once, best keyword match and newest first", async () => {
+  const { photoCandidates } = await import("../scripts/lib.mjs");
+  const it = (id, title, month, where = "제주도", tags = "") => ({ galContentId: id, galTitle: title, galPhotographyMonth: month, galPhotographyLocation: where, galSearchKeyword: tags, galWebImageUrl: `u${id}` });
+  const items = [it(1, "기타 풍경", "202301", "제주도", "산방산"), it(2, "산방산", "201004"), it(3, "산방산", "202210"), it(2, "산방산", "201004"), it(4, "산방산", "202301", "부산")];
+  assert.deepEqual(photoCandidates(items, ["산방산"]).map((x) => x.galContentId), [3, 2, 1]);
+});

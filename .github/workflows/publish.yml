@@ -54,6 +54,12 @@ jobs:
         env:
           DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
 
+      # Photo picker for the committee: https://qm2027.github.io/tour-data/candidates.html
+      - if: github.event_name != 'schedule'
+        run: node scripts/candidates.mjs --out site
+        env:
+          DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
+
       - run: du -sh site && ls site
 
       - uses: actions/upload-pages-artifact@v3

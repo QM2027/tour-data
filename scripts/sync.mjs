@@ -222,12 +222,27 @@ async function syncPhotos(prev) {
   const photos = {};
   await pool(ids, 3, async (id) => {
     try {
-      // Try each keyword until there are three photos.
       const picks = [];
-      for (const kw of keywords(CONFIG[id].photoKeyword)) {
-        const { items } = await api(PHOTO, "gallerySearchList1", { keyword: kw, numOfRows: 40, pageNo: 1, arrange: "A" });
-        for (const it of pickPhotos(items, kw, 3)) if (!picks.some((p) => p.galWebImageUrl === it.galWebImageUrl)) picks.push(it);
-        if (picks.length >= 3) break;
+      const pinned = CONFIG[id].photoIds;
+      if (pinned?.length) {
+        // Chosen by hand in candidates.html: find exactly those, in that order.
+        const found = new Map();
+        for (const kw of keywords(CONFIG[id].photoKeyword)) {
+          const { items } = await api(PHOTO, "gallerySearchList1", { keyword: kw, numOfRows: 100, pageNo: 1, arrange: "A" });
+          for (const it of items) found.set(String(it.galContentId), it);
+          if (pinned.every((p) => found.has(String(p)))) break;
+        }
+        for (const p of pinned) {
+          if (found.has(String(p))) picks.push(found.get(String(p)));
+          else fail("photos", id, `pinned photo ${p} not found under its keywords`);
+        }
+      } else {
+        // Try each keyword until there are three photos.
+        for (const kw of keywords(CONFIG[id].photoKeyword)) {
+          const { items } = await api(PHOTO, "gallerySearchList1", { keyword: kw, numOfRows: 40, pageNo: 1, arrange: "A" });
+          for (const it of pickPhotos(items, kw, 3)) if (!picks.some((p) => p.galWebImageUrl === it.galWebImageUrl)) picks.push(it);
+          if (picks.length >= 3) break;
+        }
       }
       const list = [];
       for (const it of picks.slice(0, 3)) {

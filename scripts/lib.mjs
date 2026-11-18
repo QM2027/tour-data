@@ -197,6 +197,22 @@ export function pickPhotos(items, keyword, n = 3) {
     .slice(0, n);
 }
 
+/**
+ * Everything worth showing in the photo picker: on Jeju, one per image, best keyword match first
+ * (title, then tags, then neither), newest first within each.
+ */
+export function photoCandidates(items, kws, n = 36) {
+  const ks = kws.map(squash);
+  const onJeju = (it) => /제주|서귀포/.test(`${it.galPhotographyLocation ?? ""} ${it.galSearchKeyword ?? ""} ${it.galTitle ?? ""}`);
+  const rank = (it) => Math.min(...ks.map((k) => (squash(it.galTitle).includes(k) ? 0 : squash(it.galSearchKeyword).includes(k) ? 1 : 2)));
+  const seen = new Set();
+  return items
+    .filter((it) => it.galWebImageUrl && onJeju(it))
+    .filter((it) => !seen.has(String(it.galContentId)) && seen.add(String(it.galContentId)))
+    .sort((a, b) => rank(a) - rank(b) || String(b.galPhotographyMonth ?? "").localeCompare(String(a.galPhotographyMonth ?? "")))
+    .slice(0, n);
+}
+
 /** "201004" → "2010-04"; "202200" (month unknown) → "2022". */
 export function photoMonth(s) {
   const m = String(s ?? "").match(/^(\d{4})(\d{2})/);
