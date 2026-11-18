@@ -33,7 +33,10 @@ new place, add it without `contentId`, push, read `match.json`, and copy the rig
 - The previous published snapshot is the fallback: a place, photo or whole source that fails is
   carried over from it, and the problem is listed in `index.json` `errors`. Without the key the
   previous snapshot is republished as is.
-- About 120 API calls per run, well inside the development quota (1,000 calls a day per service).
+- A photo, once published, is kept: later runs copy it from the previous snapshot without asking
+  PhotoKorea again, so it stays even if it drops out of search. The photo API is called only for
+  pinned photos not yet published, places with no photos yet, and photos whose copy fails.
+- About 120 API calls per run at most, well inside the development quota (1,000 calls a day per service).
 
 ## Key
 

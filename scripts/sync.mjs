@@ -217,57 +217,79 @@ async function syncFestivals(prev) {
   }
 }
 
+/** Mirrors one PhotoKorea item into a photos.json entry. */
+async function mirrorPhoto(it) {
+  const id = String(it.galContentId);
+  const files = await mirror(it.galWebImageUrl, `p${id}`);
+  return {
+    ...files,
+    title: it.galTitle ?? null,
+    photographer: photographerName(it.galPhotographer),
+    month: photoMonth(it.galPhotographyMonth),
+    galContentId: id,
+    modified: String(it.galModifiedtime ?? ""),
+    license: "KOGL Type 1",
+  };
+}
+
+const SEARCH_PAGES = 5;
+/** PhotoKorea items with the given galContentIds, searched under the place's keywords. */
+async function findPhotos(kws, wanted) {
+  const found = new Map();
+  for (const kw of kws) {
+    for (let page = 1; page <= SEARCH_PAGES; page++) {
+      const r = await api(PHOTO, "gallerySearchList1", { keyword: kw, numOfRows: 100, pageNo: page, arrange: "A" });
+      for (const it of r.items) found.set(String(it.galContentId), it);
+      if (wanted.every((p) => found.has(p))) return found;
+      if (!r.items.length || page * 100 >= r.total) break;
+    }
+  }
+  return found;
+}
+
+// A photo, once published, is kept: it is copied from the previous snapshot and the API is not
+// asked about it again, so a photo that later drops out of PhotoKorea search stays on the site.
+// The API is called only for pinned photos not yet published, for places with no photos yet, and
+// when copying a published photo fails.
 async function syncPhotos(prev) {
   const ids = Object.keys(CONFIG).filter((id) => keywords(CONFIG[id].photoKeyword).length && !CONFIG[id].skipPhotos);
   const photos = {};
   await pool(ids, 3, async (id) => {
+    const kws = keywords(CONFIG[id].photoKeyword);
+    const pinned = CONFIG[id].photoIds?.map(String);
+    const published = new Map((prev.photos[id] ?? []).map((p) => [p.galContentId, p]));
+    // Pinned in candidates.html: exactly those, in that order. Otherwise whatever was picked before.
+    const wanted = pinned?.length ? pinned : [...published.keys()];
+    const got = new Map();
+    for (const p of wanted) {
+      const old = published.get(p);
+      if (old) await carry(old).then((e) => got.set(p, e), () => {});
+    }
     try {
-      const picks = [];
-      const pinned = CONFIG[id].photoIds;
-      if (pinned?.length) {
-        // Chosen by hand in candidates.html: find exactly those, in that order.
-        const found = new Map();
-        for (const kw of keywords(CONFIG[id].photoKeyword)) {
-          const { items } = await api(PHOTO, "gallerySearchList1", { keyword: kw, numOfRows: 100, pageNo: 1, arrange: "A" });
-          for (const it of items) found.set(String(it.galContentId), it);
-          if (pinned.every((p) => found.has(String(p)))) break;
+      const missing = wanted.filter((p) => !got.has(p));
+      if (missing.length) {
+        const found = await findPhotos(kws, missing);
+        for (const p of missing) {
+          const it = found.get(p);
+          if (!it) fail("photos", id, `photo ${p} not found under its keywords`);
+          else await mirrorPhoto(it).then((e) => got.set(p, e), (e) => fail("photos", id, e));
         }
-        for (const p of pinned) {
-          if (found.has(String(p))) picks.push(found.get(String(p)));
-          else fail("photos", id, `pinned photo ${p} not found under its keywords`);
-        }
-      } else {
-        // Try each keyword until there are three photos.
-        for (const kw of keywords(CONFIG[id].photoKeyword)) {
+      }
+      if (!pinned?.length && !got.size) {
+        // Nothing published yet: pick automatically, trying each keyword until there are three.
+        const picks = [];
+        for (const kw of kws) {
           const { items } = await api(PHOTO, "gallerySearchList1", { keyword: kw, numOfRows: 40, pageNo: 1, arrange: "A" });
           for (const it of pickPhotos(items, kw, 3)) if (!picks.some((p) => p.galWebImageUrl === it.galWebImageUrl)) picks.push(it);
           if (picks.length >= 3) break;
         }
+        for (const it of picks.slice(0, 3)) await mirrorPhoto(it).then((e) => got.set(e.galContentId, e), (e) => fail("photos", id, e));
       }
-      const list = [];
-      for (const it of picks.slice(0, 3)) {
-        const meta = {
-          title: it.galTitle ?? null,
-          photographer: photographerName(it.galPhotographer),
-          month: photoMonth(it.galPhotographyMonth),
-          galContentId: String(it.galContentId),
-          modified: String(it.galModifiedtime ?? ""),
-          license: "KOGL Type 1",
-        };
-        const old = prev.photos[id]?.find((p) => p.galContentId === meta.galContentId && p.modified === meta.modified);
-        try {
-          const files = old ? await carry(old).catch(() => mirror(it.galWebImageUrl, `p${meta.galContentId}`)) : await mirror(it.galWebImageUrl, `p${meta.galContentId}`);
-          list.push({ src: files.src, srcSmall: files.srcSmall, width: files.width, height: files.height, ...meta });
-        } catch (e) {
-          fail("photos", id, e);
-        }
-      }
-      if (list.length) photos[id] = list;
-      else if (prev.photos[id]) photos[id] = await Promise.all(prev.photos[id].map(carry)).catch(() => undefined);
     } catch (e) {
       fail("photos", id, e);
-      if (prev.photos[id]) photos[id] = await Promise.all(prev.photos[id].map(carry)).catch(() => undefined);
     }
+    const list = [...new Set([...wanted, ...got.keys()])].map((p) => got.get(p)).filter(Boolean).slice(0, 3);
+    if (list.length) photos[id] = list;
   });
   return Object.fromEntries(ids.filter((id) => photos[id]).map((id) => [id, photos[id]]));
 }
