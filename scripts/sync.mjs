@@ -22,9 +22,9 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { promisify } from "node:util";
 import {
-  ATTRIBUTION, COMMON, ENG, JEJU_LDONG, PHOTO, SCHEMA, SIZES,
+  ATTRIBUTION, COMMON, CONFERENCE_YEAR, ENG, JEJU_LDONG, PHOTO, SCHEMA, SIZES,
   buildFestival, buildPlace, festivalEdition, fitWidth, imageSize, imgPath, makeRedact, normalizeKey,
-  parseApi, photographerName, pickPhotos,
+  keywords, parseApi, photoMonth, photographerName, pickPhotos,
 } from "./lib.mjs";
 
 const run = promisify(execFile);
@@ -183,7 +183,8 @@ async function syncFestivals(prev) {
   try {
     const items = [];
     for (let page = 1; page <= 5; page++) {
-      const r = await api(ENG, "searchFestival2", { eventStartDate: "20260101", lDongRegnCd: JEJU_LDONG, numOfRows: 100, pageNo: page, arrange: "A" });
+      // From two years back, so a festival whose latest listed edition is 2025 still shows (dates TBC).
+      const r = await api(ENG, "searchFestival2", { eventStartDate: `${CONFERENCE_YEAR - 2}0101`, lDongRegnCd: JEJU_LDONG, numOfRows: 100, pageNo: page, arrange: "A" });
       items.push(...r.items);
       if (items.length >= r.total || !r.items.length) break;
     }
@@ -217,18 +218,23 @@ async function syncFestivals(prev) {
 }
 
 async function syncPhotos(prev) {
-  const ids = Object.keys(CONFIG).filter((id) => CONFIG[id].photoKeyword && !CONFIG[id].skipPhotos);
+  const ids = Object.keys(CONFIG).filter((id) => keywords(CONFIG[id].photoKeyword).length && !CONFIG[id].skipPhotos);
   const photos = {};
   await pool(ids, 3, async (id) => {
     try {
-      const { items } = await api(PHOTO, "gallerySearchList1", { keyword: CONFIG[id].photoKeyword, numOfRows: 40, pageNo: 1, arrange: "A" });
-      const picks = pickPhotos(items, CONFIG[id].photoKeyword, 3);
+      // Try each keyword until there are three photos.
+      const picks = [];
+      for (const kw of keywords(CONFIG[id].photoKeyword)) {
+        const { items } = await api(PHOTO, "gallerySearchList1", { keyword: kw, numOfRows: 40, pageNo: 1, arrange: "A" });
+        for (const it of pickPhotos(items, kw, 3)) if (!picks.some((p) => p.galWebImageUrl === it.galWebImageUrl)) picks.push(it);
+        if (picks.length >= 3) break;
+      }
       const list = [];
-      for (const it of picks) {
+      for (const it of picks.slice(0, 3)) {
         const meta = {
           title: it.galTitle ?? null,
           photographer: photographerName(it.galPhotographer),
-          month: it.galPhotographyMonth ? `${String(it.galPhotographyMonth).slice(0, 4)}-${String(it.galPhotographyMonth).slice(4, 6)}` : null,
+          month: photoMonth(it.galPhotographyMonth),
           galContentId: String(it.galContentId),
           modified: String(it.galModifiedtime ?? ""),
           license: "KOGL Type 1",

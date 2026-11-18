@@ -178,20 +178,30 @@ export function buildFestival(item, edition, common) {
 
 const squash = (s) => String(s ?? "").replace(/[\s·.,()]/g, "");
 
+/** photoKeyword may be one keyword or a list to try in order. */
+export const keywords = (k) => (Array.isArray(k) ? k : k ? [k] : []);
+
 /**
- * Up to n PhotoKorea items for a place: on Jeju, titled or tagged with the keyword, newest first,
- * one per image.
+ * Up to n PhotoKorea items for a place: on Jeju and titled with the keyword (newest first), then
+ * ones only tagged with it; one per image.
  */
 export function pickPhotos(items, keyword, n = 3) {
   const k = squash(keyword);
   const onJeju = (it) => /제주|서귀포/.test(`${it.galPhotographyLocation ?? ""} ${it.galSearchKeyword ?? ""} ${it.galTitle ?? ""}`);
-  const matches = (it) => squash(it.galTitle).includes(k) || squash(it.galSearchKeyword).includes(k);
+  const rank = (it) => (squash(it.galTitle).includes(k) ? 0 : squash(it.galSearchKeyword).includes(k) ? 1 : 2);
   const seen = new Set();
   return items
-    .filter((it) => it.galWebImageUrl && onJeju(it) && matches(it))
-    .sort((a, b) => String(b.galPhotographyMonth ?? "").localeCompare(String(a.galPhotographyMonth ?? "")))
+    .filter((it) => it.galWebImageUrl && onJeju(it) && rank(it) < 2)
+    .sort((a, b) => rank(a) - rank(b) || String(b.galPhotographyMonth ?? "").localeCompare(String(a.galPhotographyMonth ?? "")))
     .filter((it) => !seen.has(it.galWebImageUrl) && seen.add(it.galWebImageUrl))
     .slice(0, n);
+}
+
+/** "201004" → "2010-04"; "202200" (month unknown) → "2022". */
+export function photoMonth(s) {
+  const m = String(s ?? "").match(/^(\d{4})(\d{2})/);
+  if (!m) return null;
+  return m[2] === "00" ? m[1] : `${m[1]}-${m[2]}`;
 }
 
 /** Photographer credit without the agency prefix ("한국관광공사 김지호" → "김지호"). */

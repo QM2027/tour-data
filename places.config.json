@@ -4,13 +4,19 @@
     "nameKo": "대포동 주상절리대",
     "lat": 33.2378,
     "lng": 126.4253,
-    "photoKeyword": "주상절리"
+    "contentId": "264179",
+    "photoKeyword": [
+      "대포주상절리",
+      "주상절리대",
+      "지삿개"
+    ]
   },
   "saekdal": {
     "name": "Jungmun Saekdal Beach",
     "nameKo": "중문색달해수욕장",
     "lat": 33.2445,
     "lng": 126.4119,
+    "contentId": "264177",
     "photoKeyword": "중문색달해수욕장"
   },
   "cheonjeyeon": {
@@ -18,6 +24,7 @@
     "nameKo": "천제연폭포",
     "lat": 33.2523,
     "lng": 126.4183,
+    "contentId": "264176",
     "photoKeyword": "천제연폭포"
   },
   "yeomiji": {
@@ -25,6 +32,7 @@
     "nameKo": "여미지식물원",
     "lat": 33.2496,
     "lng": 126.4178,
+    "contentId": "264607",
     "photoKeyword": "여미지식물원"
   },
   "teddy": {
@@ -32,6 +40,7 @@
     "nameKo": "테디베어뮤지엄",
     "lat": 33.2502,
     "lng": 126.4122,
+    "contentId": "268082",
     "photoKeyword": "테디베어뮤지엄"
   },
   "olle8": {
@@ -39,13 +48,18 @@
     "nameKo": "올레 8코스",
     "lat": 33.2398,
     "lng": 126.4176,
-    "photoKeyword": "올레 8코스"
+    "searchKeyword": "Olle Trail",
+    "photoKeyword": [
+      "제주올레길",
+      "올레길"
+    ]
   },
   "cheonjiyeon": {
     "name": "Cheonjiyeon Falls",
     "nameKo": "천지연폭포",
     "lat": 33.2469,
     "lng": 126.5543,
+    "contentId": "264588",
     "photoKeyword": "천지연폭포"
   },
   "jeongbang": {
@@ -53,6 +67,7 @@
     "nameKo": "정방폭포",
     "lat": 33.2448,
     "lng": 126.5719,
+    "contentId": "264181",
     "photoKeyword": "정방폭포"
   },
   "oedolgae": {
@@ -60,6 +75,7 @@
     "nameKo": "외돌개",
     "lat": 33.2394,
     "lng": 126.5446,
+    "contentId": "264532",
     "photoKeyword": "외돌개"
   },
   "leejungseop": {
@@ -67,6 +83,7 @@
     "nameKo": "이중섭거리·미술관",
     "lat": 33.2471,
     "lng": 126.565,
+    "searchKeyword": "Lee Jung-seop",
     "photoKeyword": "이중섭거리"
   },
   "olle-market": {
@@ -74,6 +91,7 @@
     "nameKo": "서귀포매일올레시장",
     "lat": 33.2494,
     "lng": 126.5636,
+    "searchKeyword": "Olle Market",
     "photoKeyword": "매일올레시장"
   },
   "astro-seogwipo": {
@@ -81,13 +99,18 @@
     "nameKo": "서귀포천문과학문화관",
     "lat": 33.256,
     "lng": 126.545,
-    "photoKeyword": "서귀포천문과학문화관"
+    "searchKeyword": "Astronomical",
+    "photoKeyword": [
+      "서귀포천문과학문화관",
+      "천문과학문화관"
+    ]
   },
   "sanbangsan": {
     "name": "Sanbangsan & Yongmeori Coast",
     "nameKo": "산방산·용머리해안",
     "lat": 33.2316,
     "lng": 126.3146,
+    "contentId": "264183",
     "photoKeyword": "산방산"
   },
   "suwolbong": {
@@ -95,6 +118,7 @@
     "nameKo": "수월봉 지질트레일",
     "lat": 33.2958,
     "lng": 126.1636,
+    "contentId": "1145503",
     "photoKeyword": "수월봉"
   },
   "songaksan": {
@@ -102,6 +126,7 @@
     "nameKo": "송악산",
     "lat": 33.201,
     "lng": 126.2925,
+    "contentId": "1768982",
     "photoKeyword": "송악산"
   },
   "osulloc": {
@@ -109,6 +134,7 @@
     "nameKo": "오설록 티뮤지엄",
     "lat": 33.3058,
     "lng": 126.2895,
+    "contentId": "2953596",
     "photoKeyword": "오설록"
   },
   "bonte": {
@@ -116,6 +142,7 @@
     "nameKo": "본태박물관",
     "lat": 33.3018,
     "lng": 126.3936,
+    "searchKeyword": "Bonte Museum",
     "photoKeyword": "본태박물관"
   },
   "hyeopjae": {
@@ -123,6 +150,7 @@
     "nameKo": "협재해수욕장",
     "lat": 33.394,
     "lng": 126.2397,
+    "contentId": "264170",
     "photoKeyword": "협재해수욕장"
   },
   "saebyeol": {
@@ -130,6 +158,7 @@
     "nameKo": "새별오름",
     "lat": 33.3664,
     "lng": 126.3573,
+    "contentId": "1052215",
     "photoKeyword": "새별오름"
   },
   "yeongsil": {
@@ -137,6 +166,7 @@
     "nameKo": "한라산 영실코스",
     "lat": 33.3473,
     "lng": 126.4964,
+    "contentId": "1769098",
     "photoKeyword": "영실"
   },
   "seongpanak": {
@@ -144,6 +174,7 @@
     "nameKo": "한라산 성판악코스",
     "lat": 33.3846,
     "lng": 126.62,
+    "searchKeyword": "Seongpanak",
     "photoKeyword": "성판악"
   },
   "seongsan": {
@@ -151,6 +182,7 @@
     "nameKo": "성산일출봉",
     "lat": 33.4587,
     "lng": 126.9425,
+    "contentId": "264207",
     "photoKeyword": "성산일출봉"
   },
   "udo": {
@@ -158,6 +190,7 @@
     "nameKo": "우도 (성산항)",
     "lat": 33.474,
     "lng": 126.934,
+    "searchKeyword": "Udo Island",
     "photoKeyword": "우도"
   },
   "manjanggul": {
@@ -165,6 +198,7 @@
     "nameKo": "만장굴",
     "lat": 33.5283,
     "lng": 126.7714,
+    "contentId": "264236",
     "photoKeyword": "만장굴"
   },
   "bijarim": {
@@ -172,6 +206,7 @@
     "nameKo": "비자림",
     "lat": 33.4857,
     "lng": 126.8064,
+    "contentId": "264224",
     "photoKeyword": "비자림"
   },
   "haenyeo-museum": {
@@ -179,6 +214,7 @@
     "nameKo": "해녀박물관",
     "lat": 33.5232,
     "lng": 126.8616,
+    "contentId": "268222",
     "photoKeyword": "해녀박물관"
   },
   "aquaplanet": {
@@ -186,6 +222,7 @@
     "nameKo": "아쿠아플라넷 제주",
     "lat": 33.433,
     "lng": 126.9275,
+    "contentId": "2350810",
     "photoKeyword": "아쿠아플라넷 제주"
   },
   "noksanro": {
@@ -193,6 +230,7 @@
     "nameKo": "녹산로 유채꽃길",
     "lat": 33.387,
     "lng": 126.752,
+    "contentId": "3079500",
     "photoKeyword": "녹산로"
   },
   "saryeoni": {
@@ -200,6 +238,7 @@
     "nameKo": "사려니숲길",
     "lat": 33.4135,
     "lng": 126.6385,
+    "contentId": "2476008",
     "photoKeyword": "사려니숲길"
   },
   "saeyeongyo": {
@@ -207,6 +246,7 @@
     "nameKo": "새연교·새섬",
     "lat": 33.2389,
     "lng": 126.5596,
+    "contentId": "1755181",
     "photoKeyword": "새연교"
   },
   "gwangchigi": {
@@ -214,6 +254,7 @@
     "nameKo": "광치기해변",
     "lat": 33.4525,
     "lng": 126.9245,
+    "contentId": "3485912",
     "photoKeyword": "광치기해변"
   },
   "hamdeok": {
@@ -221,6 +262,7 @@
     "nameKo": "함덕해수욕장",
     "lat": 33.5434,
     "lng": 126.6697,
+    "contentId": "1052165",
     "photoKeyword": "함덕해수욕장"
   },
   "dongmun": {
@@ -228,6 +270,7 @@
     "nameKo": "동문시장 야시장",
     "lat": 33.5116,
     "lng": 126.5262,
+    "contentId": "1018338",
     "photoKeyword": "동문시장"
   },
   "jeonnongro": {
@@ -235,6 +278,7 @@
     "nameKo": "전농로 왕벚꽃거리",
     "lat": 33.5034,
     "lng": 126.521,
+    "searchKeyword": "Jeonnong-ro",
     "photoKeyword": "전농로"
   },
   "peace-park": {
@@ -242,13 +286,19 @@
     "nameKo": "제주4·3평화공원",
     "lat": 33.4507,
     "lng": 126.6704,
-    "photoKeyword": "4.3평화공원"
+    "searchKeyword": "Peace Park",
+    "photoKeyword": [
+      "제주4·3평화공원",
+      "4·3평화공원",
+      "평화공원"
+    ]
   },
   "cju": {
     "name": "Jeju International Airport (CJU)",
     "nameKo": "제주국제공항",
     "lat": 33.507,
     "lng": 126.493,
+    "skipInfo": true,
     "skipPhotos": true
   },
   "seongsan-port": {
@@ -256,6 +306,7 @@
     "nameKo": "성산항",
     "lat": 33.4742,
     "lng": 126.9319,
+    "skipInfo": true,
     "skipPhotos": true
   },
   "seogwipo-medical": {
@@ -263,15 +314,15 @@
     "nameKo": "서귀포의료원",
     "lat": 33.2564,
     "lng": 126.5643,
-    "skipPhotos": true,
-    "skipInfo": true
+    "skipInfo": true,
+    "skipPhotos": true
   },
   "jnuh": {
     "name": "Jeju National University Hospital",
     "nameKo": "제주대학교병원",
     "lat": 33.4673,
     "lng": 126.545,
-    "skipPhotos": true,
-    "skipInfo": true
+    "skipInfo": true,
+    "skipPhotos": true
   }
 }

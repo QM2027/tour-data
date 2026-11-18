@@ -21,7 +21,9 @@ the site reads the published files.
 { "yeomiji": { "name": "…", "nameKo": "…", "lat": 33.2, "lng": 126.4, "contentId": "264xxx", "photoKeyword": "여미지식물원" } }
 ```
 
-`skipInfo` leaves a place out of `places.json`; `skipPhotos` leaves it out of `photos.json`. To match a
+`photoKeyword` (Korean) may be a list, tried in order until there are three photos; `searchKeyword`
+overrides the English term `match.mjs` searches for. `skipInfo` leaves a place out of `places.json`;
+`skipPhotos` leaves it out of `photos.json`. To match a
 new place, add it without `contentId`, push, read `match.json`, and copy the right `contentId` in.
 
 ## Schedule and failures

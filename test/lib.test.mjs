@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   buildPlace, cleanText, extractUrl, festivalEdition, fitWidth, hoursFromIntro, imageSize, makeRedact,
-  normalizeKey, parseApi, photographerName, pickPhotos,
+  keywords, normalizeKey, parseApi, photoMonth, photographerName, pickPhotos,
 } from "../scripts/lib.mjs";
 
 test("normalizeKey accepts the Encoding and Decoding forms", () => {
@@ -78,8 +78,18 @@ test("pickPhotos keeps Jeju matches, newest first, no duplicates", () => {
     { galTitle: "용머리해안", galSearchKeyword: "산방산, 제주도", galPhotographyMonth: "201901", galWebImageUrl: "d" },
     { galTitle: "산방산", galPhotographyLocation: "제주도" },
   ];
-  assert.deepEqual(pickPhotos(items, "산방산").map((p) => p.galWebImageUrl), ["b", "d", "a"]);
+  // Titled matches first (newest first), then ones only tagged with the keyword.
+  assert.deepEqual(pickPhotos(items, "산방산").map((p) => p.galWebImageUrl), ["b", "a", "d"]);
   assert.deepEqual(pickPhotos(items, "4.3평화공원"), []);
+});
+
+test("photoMonth formats shooting months", () => {
+  assert.equal(photoMonth("201004"), "2010-04");
+  assert.equal(photoMonth("202200"), "2022");
+  assert.equal(photoMonth(""), null);
+  assert.deepEqual(keywords("a"), ["a"]);
+  assert.deepEqual(keywords(["a", "b"]), ["a", "b"]);
+  assert.deepEqual(keywords(undefined), []);
 });
 
 test("photographerName drops the agency prefix", () => {

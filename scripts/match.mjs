@@ -3,7 +3,8 @@
 //
 //   DATA_GO_KR_KEY=… node scripts/match.mjs [--all] [--out site/match.json]
 //
-// By default only places without a contentId (and not skipInfo) are looked up, to spare the
+// `searchKeyword` overrides the English search term. By default only places without a contentId
+// (and not skipInfo) are looked up, to spare the
 // daily quota. For each: English keyword search plus a 2 km location search, ranked by distance,
 // and the top PhotoKorea hits for its photoKeyword. Nothing is changed: copy confident
 // contentIds into places.config.json by hand. The publish workflow runs this on push and writes
@@ -11,7 +12,7 @@
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
-import { COMMON, ENG, PHOTO, distanceM, makeRedact, normalizeKey, parseApi, pickPhotos } from "./lib.mjs";
+import { COMMON, ENG, PHOTO, distanceM, keywords, makeRedact, normalizeKey, parseApi, pickPhotos } from "./lib.mjs";
 
 const KEY = normalizeKey(process.env.DATA_GO_KR_KEY);
 const redact = makeRedact(KEY);
@@ -48,7 +49,7 @@ else {
       seen.set(id2, { contentId: id2, contentTypeId: String(it.contenttypeid), title: it.title, distM: d, via });
     };
     try {
-      for (const it of await api(ENG, "searchKeyword2", { keyword: keywordOf(c.name), numOfRows: 10, pageNo: 1, arrange: "A" })) add(it, "keyword");
+      for (const it of await api(ENG, "searchKeyword2", { keyword: c.searchKeyword ?? keywordOf(c.name), numOfRows: 10, pageNo: 1, arrange: "A" })) add(it, "keyword");
     } catch (e) {
       entry.error = e.message;
     }
@@ -58,13 +59,16 @@ else {
       entry.error = [entry.error, e.message].filter(Boolean).join("; ");
     }
     entry.candidates = [...seen.values()].sort((a, b) => (a.distM ?? 1e9) - (b.distM ?? 1e9)).slice(0, 8);
-    if (c.photoKeyword && !c.skipPhotos) {
-      try {
-        const items = await api(PHOTO, "gallerySearchList1", { keyword: c.photoKeyword, numOfRows: 40, pageNo: 1, arrange: "A" });
-        entry.photoHits = items.length;
-        entry.photos = pickPhotos(items, c.photoKeyword, 5).map((p) => ({ title: p.galTitle, where: p.galPhotographyLocation, month: p.galPhotographyMonth, keywords: p.galSearchKeyword, url: p.galWebImageUrl }));
-      } catch (e) {
-        entry.error = [entry.error, e.message].filter(Boolean).join("; ");
+    if (!c.skipPhotos) {
+      entry.photoHits = {};
+      for (const kw of keywords(c.photoKeyword)) {
+        try {
+          const items = await api(PHOTO, "gallerySearchList1", { keyword: kw, numOfRows: 40, pageNo: 1, arrange: "A" });
+          entry.photoHits[kw] = items.length;
+          entry.photos.push(...pickPhotos(items, kw, 5).map((p) => ({ keyword: kw, title: p.galTitle, where: p.galPhotographyLocation, month: p.galPhotographyMonth, keywords: p.galSearchKeyword, url: p.galWebImageUrl })));
+        } catch (e) {
+          entry.error = [entry.error, e.message].filter(Boolean).join("; ");
+        }
       }
     }
     out.places[id] = entry;
