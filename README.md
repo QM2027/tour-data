@@ -45,9 +45,10 @@ printed; error bodies that echo it are redacted. Services used: 한국관광공�
 ## Licence and attribution
 
 PhotoKorea photos are KOGL Type 1 (공공누리 제1유형: attribution required; changes and commercial use
-allowed), so they are resized and re-encoded. Credit them where shown, for example:
+allowed), so they are resized and re-encoded. Credit them where shown in exactly the form PhotoKorea
+requires, `ⓒKorea Tourism Organization - Photographer`, for example:
 
-> Photo: Korea Tourism Organization, PhotoKorea (photographer) · KOGL Type 1
+> ⓒKorea Tourism Organization - Hong Gil-dong
 
 TourAPI festival images are published only when marked Type 1; Type 3 (no changes) images are left
 out. Text from TourAPI: "Source: Korea Tourism Organization (TourAPI)". The same strings are in

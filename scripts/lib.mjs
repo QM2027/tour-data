@@ -9,7 +9,7 @@ export const COMMON = { MobileOS: "ETC", MobileApp: "QM2027", _type: "json" };
 
 export const ATTRIBUTION = {
   text: "Place information and photos: Korea Tourism Organization (TourAPI, PhotoKorea), via data.go.kr.",
-  photos: "Photos: Korea Tourism Organization, PhotoKorea (photographer as credited), KOGL Type 1. Resized.",
+  photos: "Credit each photo as \"ⓒKorea Tourism Organization - Photographer\". PhotoKorea, KOGL Type 1. Resized.",
   licence: "KOGL Type 1 (공공누리 제1유형: 출처표시) — https://www.kogl.or.kr/info/licenseType1.do",
 };
 
