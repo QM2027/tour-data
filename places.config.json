@@ -91,6 +91,7 @@
     "nameKo": "서귀포매일올레시장",
     "lat": 33.2494,
     "lng": 126.5636,
+    "contentId": "1023956",
     "searchKeyword": "Olle Market",
     "photoKeyword": "매일올레시장"
   },
@@ -190,6 +191,7 @@
     "nameKo": "우도 (성산항)",
     "lat": 33.474,
     "lng": 126.934,
+    "contentId": "264182",
     "searchKeyword": "Udo Island",
     "photoKeyword": "우도"
   },
@@ -286,6 +288,7 @@
     "nameKo": "제주4·3평화공원",
     "lat": 33.4507,
     "lng": 126.6704,
+    "contentId": "2012011",
     "searchKeyword": "Peace Park",
     "photoKeyword": [
       "제주4·3평화공원",
