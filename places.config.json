@@ -151,9 +151,9 @@
     "searchKeyword": "Daepo",
     "photoKeyword": [
       "대포포구",
-      "대포항",
-      "대포동"
-    ]
+      "대포항"
+    ],
+    "skipPhotos": true
   },
   "jungmun-town": {
     "name": "Jungmun town centre",
@@ -171,9 +171,9 @@
     "searchKeyword": "Yerae",
     "photoKeyword": [
       "예래생태공원",
-      "예래생태체험관",
-      "예래"
-    ]
+      "예래생태체험관"
+    ],
+    "skipPhotos": true
   },
   "nonjitmul": {
     "name": "Nonjitmul",
@@ -210,9 +210,9 @@
     "searchKeyword": "Beophwan",
     "photoKeyword": [
       "법환포구",
-      "법환",
-      "범섬"
-    ]
+      "법환"
+    ],
+    "skipPhotos": true
   },
   "gunsan-oreum": {
     "name": "Gunsan Oreum",
