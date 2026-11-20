@@ -29,7 +29,8 @@ new place, add it without `contentId`, push, read `match.json`, and copy the rig
 ## Schedule and failures
 
 - Push to `main` or **Run workflow**: publish now (and write `match.json`).
-- Weekly, Mondays 03:00 UTC.
+- Weekly, Mondays 03:00 UTC: the `qm2027-trigger` Cloudflare Worker dispatches the workflow with
+  `scheduled=true` (no GitHub schedule, which runs late or not at all).
 - The previous published snapshot is the fallback: a place, photo or whole source that fails is
   carried over from it, and the problem is listed in `index.json` `errors`. Without the key the
   previous snapshot is republished as is.
